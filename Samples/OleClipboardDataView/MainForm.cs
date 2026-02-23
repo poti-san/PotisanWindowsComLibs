@@ -1,4 +1,4 @@
-#pragma warning disable IDE1006 // ñΩñºÉXÉ^ÉCÉã
+Ôªø#pragma warning disable IDE1006 // ÂëΩÂêç„Çπ„Çø„Ç§„É´
 
 using System.Globalization;
 using System.Runtime.InteropServices;
@@ -59,18 +59,36 @@ internal sealed partial class MainForm : Form
 		{
 			foreach (var fmtetc in dataobj.FormatEtcGetterEnumerable)
 			{
-				var medium = dataobj.GetData(fmtetc);
-				var item = listView1.Items.Add(new ListViewItem([
-					$"{fmtetc.ClipboardFormat} ({fmtetc.ClipboardFormat.ToHashNoString()})",
-					fmtetc.Tymed.ToString(),
-					fmtetc.Aspect.ToString(),
-					fmtetc.Index.ToString(CultureInfo.InvariantCulture),
-					fmtetc.TargetDevicePointer.ToString(CultureInfo.InvariantCulture),
-					medium.Tymed.ToString(),
-					medium.GetByteLength().ToString(CultureInfo.InvariantCulture),
-					medium.UnknownPointerForRelease.ToString(CultureInfo.InvariantCulture),
-				]));
-				item.Tag = medium;
+				try
+				{
+					var medium = dataobj.GetData(fmtetc);
+					var item = listView1.Items.Add(new ListViewItem([
+						$"{fmtetc.ClipboardFormat} ({fmtetc.ClipboardFormat.ToHashNoString()})",
+						fmtetc.Tymed.ToString(),
+						fmtetc.Aspect.ToString(),
+						fmtetc.Index.ToString(CultureInfo.InvariantCulture),
+						fmtetc.TargetDevicePointer.ToString(CultureInfo.InvariantCulture),
+						medium.Tymed.ToString(),
+						medium.GetByteLength().ToString(CultureInfo.InvariantCulture),
+						medium.UnknownPointerForRelease.ToString(CultureInfo.InvariantCulture),
+					]));
+					item.Tag = medium;
+				}
+				catch
+				{
+					var item = listView1.Items.Add(new ListViewItem([
+						$"{fmtetc.ClipboardFormat} ({fmtetc.ClipboardFormat.ToHashNoString()})",
+						fmtetc.Tymed.ToString(),
+						fmtetc.Aspect.ToString(),
+						fmtetc.Index.ToString(CultureInfo.InvariantCulture),
+						fmtetc.TargetDevicePointer.ToString(CultureInfo.InvariantCulture),
+						"<ERROR>",
+						"<ERROR>",
+						"<ERROR>",
+					]));
+					item.Tag = null;
+				}
+				finally { }
 			}
 		}
 		listView1.EndUpdate();

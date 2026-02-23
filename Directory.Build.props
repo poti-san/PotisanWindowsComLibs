@@ -1,7 +1,7 @@
-<Project>
+﻿<Project>
 
 	<PropertyGroup>
-		<TargetFramework>net9.0-windows</TargetFramework>
+		<TargetFramework>net10.0-windows</TargetFramework>
 		<PlatformTarget>AnyCPU</PlatformTarget>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
@@ -15,7 +15,6 @@
 		<TieredCompilationQuickJit>false</TieredCompilationQuickJit>
 		<IncludeSymbols>False</IncludeSymbols>
 		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
-		<TieredCompilationQuickJit>false</TieredCompilationQuickJit>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -24,12 +23,8 @@
 		<Using Include="System.Runtime.InteropServices" />
 	</ItemGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<IsPublishable>False</IsPublishable>
-	</PropertyGroup>
-
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<IsPublishable>False</IsPublishable>
+		<TieredCompilationQuickJit>false</TieredCompilationQuickJit>
 	</PropertyGroup>
 
 </Project>

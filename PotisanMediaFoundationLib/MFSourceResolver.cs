@@ -24,7 +24,7 @@ public class MFSourceResolver(object? o) : ComUnknownWrapperBase<IMFSourceResolv
 		PropertyStore? propStore = null)
 	{
 		const uint MF_RESOLUTION_MEDIASOURCE = 0x1;
-		if (((uint)resolution & 0x3) is not 0 or MF_RESOLUTION_MEDIASOURCE)
+		if (((uint)resolution & 0x3) is not (0 or MF_RESOLUTION_MEDIASOURCE))
 			return new(CommonHResults.EInvalidArg, new(null));
 		resolution |= (MFResolutionFlag)MF_RESOLUTION_MEDIASOURCE;
 
@@ -49,7 +49,7 @@ public class MFSourceResolver(object? o) : ComUnknownWrapperBase<IMFSourceResolv
 		PropertyStore? propStore = null)
 	{
 		const uint MF_RESOLUTION_BYTESTREAM = 0x2;
-		if (((uint)resolution & 0x3) is not 0 or MF_RESOLUTION_BYTESTREAM)
+		if (((uint)resolution & 0x3) is not (0 or MF_RESOLUTION_BYTESTREAM))
 			return new(CommonHResults.EInvalidArg, new(null));
 		resolution |= (MFResolutionFlag)MF_RESOLUTION_BYTESTREAM;
 
@@ -74,7 +74,7 @@ public class MFSourceResolver(object? o) : ComUnknownWrapperBase<IMFSourceResolv
 		PropertyStore? propStore = null)
 	{
 		const uint MF_RESOLUTION_MEDIASOURCE = 0x1;
-		if (((uint)resolution & 0x3) is not 0 or MF_RESOLUTION_MEDIASOURCE)
+		if (((uint)resolution & 0x3) is not (0 or MF_RESOLUTION_MEDIASOURCE))
 			return new(CommonHResults.EInvalidArg, new(null));
 		resolution |= (MFResolutionFlag)MF_RESOLUTION_MEDIASOURCE;
 
@@ -100,7 +100,7 @@ public class MFSourceResolver(object? o) : ComUnknownWrapperBase<IMFSourceResolv
 		PropertyStore? propStore = null)
 	{
 		const uint MF_RESOLUTION_MEDIASOURCE = 0x1;
-		if (((uint)resolution & 0x3) is not 0 or MF_RESOLUTION_MEDIASOURCE)
+		if (((uint)resolution & 0x3) is not (0 or MF_RESOLUTION_MEDIASOURCE))
 			return new(CommonHResults.EInvalidArg, new(null));
 		resolution |= (MFResolutionFlag)MF_RESOLUTION_MEDIASOURCE;
 
@@ -126,7 +126,7 @@ public class MFSourceResolver(object? o) : ComUnknownWrapperBase<IMFSourceResolv
 		PropertyStore? propStore = null)
 	{
 		const uint MF_RESOLUTION_BYTESTREAM = 0x2;
-		if (((uint)resolution & 0x3) is not 0 or MF_RESOLUTION_BYTESTREAM)
+		if (((uint)resolution & 0x3) is not (0 or MF_RESOLUTION_BYTESTREAM))
 			return new(CommonHResults.EInvalidArg, new(null));
 		resolution |= (MFResolutionFlag)MF_RESOLUTION_BYTESTREAM;
 
@@ -152,7 +152,7 @@ public class MFSourceResolver(object? o) : ComUnknownWrapperBase<IMFSourceResolv
 		PropertyStore? propStore = null)
 	{
 		const uint MF_RESOLUTION_BYTESTREAM = 0x2;
-		if (((uint)resolution & 0x3) is not 0 or MF_RESOLUTION_BYTESTREAM)
+		if (((uint)resolution & 0x3) is not (0 or MF_RESOLUTION_BYTESTREAM))
 			return new(CommonHResults.EInvalidArg, new(null));
 		resolution |= (MFResolutionFlag)MF_RESOLUTION_BYTESTREAM;
 

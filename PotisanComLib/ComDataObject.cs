@@ -20,6 +20,7 @@ public class ComDataObject(object? o) : ComUnknownWrapperBase<IDataObject>(o)
 		return new(_obj.GetData(fmtetc, x), x);
 	}
 
+	/// <remarks>ショートカットファイルを含むFileContents等ではエラーが発生することに注意してください。</remarks>
 	public ComStorageMedium GetData(ComFormatEtc fmtetc)
 		=> GetDataNoThrow(fmtetc).Value;
 
